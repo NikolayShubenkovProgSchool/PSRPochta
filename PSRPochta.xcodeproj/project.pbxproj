@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F3E2E259F584324B143E0BA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF82F75B04AD45609E8EED7B /* libPods.a */; };
 		FEB7FA9719B51C080041A65B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB7FA9619B51C080041A65B /* main.m */; };
 		FEB7FA9A19B51C080041A65B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB7FA9919B51C080041A65B /* AppDelegate.m */; };
 		FEB7FA9D19B51C080041A65B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB7FA9C19B51C080041A65B /* ViewController.m */; };
 		FEB7FAA019B51C080041A65B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEB7FA9E19B51C080041A65B /* Main.storyboard */; };
 		FEB7FAA219B51C080041A65B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB7FAA119B51C080041A65B /* Images.xcassets */; };
 		FEB7FAAE19B51C080041A65B /* PSRPochtaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB7FAAD19B51C080041A65B /* PSRPochtaTests.m */; };
+		FEB7FAB919B51C1E0041A65B /* RPIAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB7FAB819B51C1E0041A65B /* RPIAPIClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		807F18E18B014135A20716DE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		EF82F75B04AD45609E8EED7B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB7FA9119B51C080041A65B /* PSRPochta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSRPochta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB7FA9519B51C080041A65B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEB7FA9619B51C080041A65B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		FEB7FAA719B51C080041A65B /* PSRPochtaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSRPochtaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB7FAAC19B51C080041A65B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEB7FAAD19B51C080041A65B /* PSRPochtaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSRPochtaTests.m; sourceTree = "<group>"; };
+		FEB7FAB719B51C1E0041A65B /* RPIAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPIAPIClient.h; path = PSRPochta/RPIAPIClient.h; sourceTree = "<group>"; };
+		FEB7FAB819B51C1E0041A65B /* RPIAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPIAPIClient.m; path = PSRPochta/RPIAPIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3E2E259F584324B143E0BA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +65,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97F915389DB541529F2A4D41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF82F75B04AD45609E8EED7B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FEB7FA8819B51C080041A65B = {
 			isa = PBXGroup;
 			children = (
+				FEB7FABA19B51E040041A65B /* help */,
 				FEB7FA9319B51C080041A65B /* PSRPochta */,
 				FEB7FAAA19B51C080041A65B /* PSRPochtaTests */,
 				FEB7FA9219B51C080041A65B /* Products */,
+				807F18E18B014135A20716DE /* Pods.xcconfig */,
+				97F915389DB541529F2A4D41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +134,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FEB7FABA19B51E040041A65B /* help */ = {
+			isa = PBXGroup;
+			children = (
+				FEB7FAB719B51C1E0041A65B /* RPIAPIClient.h */,
+				FEB7FAB819B51C1E0041A65B /* RPIAPIClient.m */,
+			);
+			name = help;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FEB7FAB119B51C080041A65B /* Build configuration list for PBXNativeTarget "PSRPochta" */;
 			buildPhases = (
+				6CC6F70E04B04468A747B40F /* Check Pods Manifest.lock */,
 				FEB7FA8D19B51C080041A65B /* Sources */,
 				FEB7FA8E19B51C080041A65B /* Frameworks */,
 				FEB7FA8F19B51C080041A65B /* Resources */,
+				4F35AECB09F64CC899F6BAC6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,12 +239,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F35AECB09F64CC899F6BAC6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CC6F70E04B04468A747B40F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FEB7FA8D19B51C080041A65B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FEB7FA9D19B51C080041A65B /* ViewController.m in Sources */,
+				FEB7FAB919B51C1E0041A65B /* RPIAPIClient.m in Sources */,
 				FEB7FA9A19B51C080041A65B /* AppDelegate.m in Sources */,
 				FEB7FA9719B51C080041A65B /* main.m in Sources */,
 			);
@@ -331,6 +394,7 @@
 		};
 		FEB7FAB219B51C080041A65B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 807F18E18B014135A20716DE /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -342,6 +406,7 @@
 		};
 		FEB7FAB319B51C080041A65B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 807F18E18B014135A20716DE /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -404,6 +469,7 @@
 				FEB7FAB319B51C080041A65B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEB7FAB419B51C080041A65B /* Build configuration list for PBXNativeTarget "PSRPochtaTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +478,7 @@
 				FEB7FAB619B51C080041A65B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
