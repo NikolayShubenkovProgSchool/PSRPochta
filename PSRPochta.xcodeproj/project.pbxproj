@@ -15,6 +15,9 @@
 		FEB7FAA219B51C080041A65B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB7FAA119B51C080041A65B /* Images.xcassets */; };
 		FEB7FAAE19B51C080041A65B /* PSRPochtaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB7FAAD19B51C080041A65B /* PSRPochtaTests.m */; };
 		FEB7FAB919B51C1E0041A65B /* RPIAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB7FAB819B51C1E0041A65B /* RPIAPIClient.m */; };
+		FEB7FABC19B523800041A65B /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEB7FABB19B523800041A65B /* map@2x.png */; };
+		FEB7FABF19B523C40041A65B /* PSRAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB7FABE19B523C40041A65B /* PSRAnnotation.m */; };
+		FEB7FAC219B523D60041A65B /* PSRAnnotationsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB7FAC119B523D60041A65B /* PSRAnnotationsParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,11 @@
 		FEB7FAAD19B51C080041A65B /* PSRPochtaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSRPochtaTests.m; sourceTree = "<group>"; };
 		FEB7FAB719B51C1E0041A65B /* RPIAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RPIAPIClient.h; path = PSRPochta/RPIAPIClient.h; sourceTree = "<group>"; };
 		FEB7FAB819B51C1E0041A65B /* RPIAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RPIAPIClient.m; path = PSRPochta/RPIAPIClient.m; sourceTree = "<group>"; };
+		FEB7FABB19B523800041A65B /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = SOURCE_ROOT; };
+		FEB7FABD19B523C40041A65B /* PSRAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRAnnotation.h; sourceTree = "<group>"; };
+		FEB7FABE19B523C40041A65B /* PSRAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRAnnotation.m; sourceTree = "<group>"; };
+		FEB7FAC019B523D60041A65B /* PSRAnnotationsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSRAnnotationsParser.h; sourceTree = "<group>"; };
+		FEB7FAC119B523D60041A65B /* PSRAnnotationsParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSRAnnotationsParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,11 @@
 				FEB7FA9B19B51C080041A65B /* ViewController.h */,
 				FEB7FA9C19B51C080041A65B /* ViewController.m */,
 				FEB7FA9E19B51C080041A65B /* Main.storyboard */,
+				FEB7FABD19B523C40041A65B /* PSRAnnotation.h */,
+				FEB7FABE19B523C40041A65B /* PSRAnnotation.m */,
+				FEB7FAC019B523D60041A65B /* PSRAnnotationsParser.h */,
+				FEB7FAC119B523D60041A65B /* PSRAnnotationsParser.m */,
+				FEB7FABB19B523800041A65B /* map@2x.png */,
 				FEB7FAA119B51C080041A65B /* Images.xcassets */,
 				FEB7FA9419B51C080041A65B /* Supporting Files */,
 			);
@@ -227,6 +240,7 @@
 			files = (
 				FEB7FAA019B51C080041A65B /* Main.storyboard in Resources */,
 				FEB7FAA219B51C080041A65B /* Images.xcassets in Resources */,
+				FEB7FABC19B523800041A65B /* map@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +293,8 @@
 			files = (
 				FEB7FA9D19B51C080041A65B /* ViewController.m in Sources */,
 				FEB7FAB919B51C1E0041A65B /* RPIAPIClient.m in Sources */,
+				FEB7FABF19B523C40041A65B /* PSRAnnotation.m in Sources */,
+				FEB7FAC219B523D60041A65B /* PSRAnnotationsParser.m in Sources */,
 				FEB7FA9A19B51C080041A65B /* AppDelegate.m in Sources */,
 				FEB7FA9719B51C080041A65B /* main.m in Sources */,
 			);

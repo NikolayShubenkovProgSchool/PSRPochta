@@ -9,7 +9,7 @@
 #import "AFHTTPClient.h"
 
 typedef void(^RPIApiSuccessBlock)(id recivedData);
-typedef void(^RPIApiFailureBlock)(NSError *apiError, NSError *systemError);
+typedef void(^RPIApiFailureBlock)(NSError *apiError);
 
 @interface RPIAPIClient : AFHTTPClient
 

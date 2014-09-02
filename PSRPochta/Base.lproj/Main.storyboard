@@ -25,6 +25,9 @@
                                     <action selector="get_offices:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OhC-bQ-VEC"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0x5-Op-fbd">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -33,9 +36,13 @@
                         <size key="portraitSize" width="320" height="480"/>
                         <size key="landscapeSize" width="480" height="320"/>
                     </simulatedScreenMetrics>
+                    <connections>
+                        <outlet property="mapView" destination="0x5-Op-fbd" id="fuF-Ym-hKE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="46" y="172"/>
         </scene>
     </scenes>
 </document>

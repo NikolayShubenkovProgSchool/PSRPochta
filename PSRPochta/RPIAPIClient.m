@@ -28,6 +28,7 @@ NSString *const kRPIAddress = @"http://95.128.178.180:5432";
                                   value:@"application/json; charset=utf-8"];
         
         [_sharedObject setDefaultHeader:@"Accept-Charset" value:@"utf-8"];
+        
         [_sharedObject setDefaultHeader:@"User-Agent"
                                   value:@"RussianPost/2.1"];
         
@@ -59,8 +60,8 @@ NSString *const kRPIAddress = @"http://95.128.178.180:5432";
     NSMutableDictionary *parameters = [self p_defaultParameters];
     [parameters addEntriesFromDictionary:@{
                                            @"top"              :@(maxOfficcesesCount),
-                                           @"latitude"         :@(longitude),
-                                           @"longitude"        :@(latitude),
+                                           @"latitude"         :@(latitude),
+                                           @"longitude"        :@(longitude),
                                            @"searchRadius"     :@(radius),
                                            @"type"             :type
                                            }];
@@ -68,25 +69,14 @@ NSString *const kRPIAddress = @"http://95.128.178.180:5432";
     [self getPath:@"mobile-api/method/offices.find.nearby"
        parameters:parameters
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              
+              if (success){
+                  success(responseObject);
+              }
           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              
+              if (failure){
+                  failure(error);
+              }
           }];
-    
-//    [self p_postRequest:[SSIAPIRequest requestWithPath:@"mobile-api/method/offices.find.nearby"
-//                                            parameters:parameters]
-//            withSuccess:^(NSArray *offices) {
-//                NSMutableArray *officesIDs = [NSMutableArray arrayWithCapacity:[offices count]];
-//                for (NSDictionary *anOffice in offices){
-//                    [officesIDs addObject:anOffice[@"postalCode"]];
-//                }
-//                [self getOfficesDetailes:officesIDs
-//                            forLongitude:longitude
-//                                latitude:latitude
-//                             withSuccess:success
-//                                 failure:failure];
-//            }
-//            failure:failure];
 }
 
 - (NSDictionary *)officesFromBundle
@@ -101,93 +91,5 @@ NSString *const kRPIAddress = @"http://95.128.178.180:5432";
                                                            error:&error];
     return data;
 }
-
-- (void)getOfficesDetailes:(NSArray *)officesIDs forLongitude:(double)longitude latitude:(double)latitude withSuccess:(RPIApiSuccessBlock)success failure:(RPIApiFailureBlock)failure
-{
-    __block int idsCount = officesIDs.count;
-    RPIApiSuccessBlock successCopied = success;
-    RPIApiFailureBlock failureCopied = failure;
-    NSMutableArray *officeDetailedInfoes = [NSMutableArray arrayWithCapacity:officesIDs.count];
-    for (NSString *anOfficeID in officesIDs){
-        [self getOfiiceDetailesForOfficeID:anOfficeID withSuccess:^(id recivedData) {
-            [officeDetailedInfoes addObject:[self p_officeDetailesByRemovingUnnecessaryInfo:recivedData]];
-            NSLog(@"recieved offices count %d, total complition %f.0",officeDetailedInfoes.count, (float) 100 * officeDetailedInfoes.count / idsCount);
-            if (officeDetailedInfoes.count == idsCount){
-                NSParameterAssert(self.operationQueue.operationCount == 0);
-                successCopied(officeDetailedInfoes);
-            }
-        } failure:^(NSError *apiError, NSError *systemError) {
-            [self.operationQueue cancelAllOperations];
-            if (self.operationQueue.operationCount == 0){
-                failureCopied(apiError, systemError);
-            }
-        }];
-    }
-}
-
-- (NSDictionary *)p_officeDetailesByRemovingUnnecessaryInfo:(NSDictionary *)detailes
-{
-    NSMutableDictionary *preparedDetailes = [detailes[@"office"] mutableCopy];
-    NSArray *keysToClear = @[@"isClosed",@"isTemporaryClosed",@"currentDayWorkingHours",@"nextDayWorkingHours"];
-    for(NSString *key in keysToClear){
-        [preparedDetailes setValue:nil forKey:key];
-    }
-    return preparedDetailes;
-}
-
-- (void)getOfiiceDetailesForOfficeID:(NSString *)officeID withSuccess:(RPIApiSuccessBlock)success failure:(RPIApiFailureBlock)failure
-{
-    NSMutableDictionary *parameters = [self p_defaultParameters];
-    [parameters addEntriesFromDictionary:@{
-                                           @"postalCode" : @([officeID intValue])
-                                          }];    
-//    
-//    [self p_postRequest:[SSIAPIRequest requestWithPath:@"mobile-api/method/offices.find.byCode"
-//                                            parameters:parameters]
-//            withSuccess:success
-//                failure:failure];
-}
-
-#pragma mark - private
-
-//- (AFHTTPRequestOperation*)p_operationWithRequest:(SSIAPIRequest *)request success:(RPIApiSuccessBlock)success failure:(RPIApiFailureBlock)failure
-//{
-//    NSMutableURLRequest *networkRequest = [[self requestWithMethod:@"GET"
-//                                                              path:request.path
-//                                                        parameters:[request dictionaryRepresentation]] mutableCopy];
-//    networkRequest.timeoutInterval = 120;
-//    NSParameterAssert(success);
-//    RPIApiSuccessBlock successCopied = [success copy];
-//    RPIApiFailureBlock failureCopied = [failure copy];
-//    AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:networkRequest
-//                                                                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//                                                                          successCopied(responseObject);
-//                                                                      }
-//                                                                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//
-//                                                                          if (failureCopied){
-//                                                                              failureCopied(nil, error);
-//                                                                          }
-//                                                                      }];
-//    return operation;
-//}
-//
-//
-//- (void)p_postRequest:(SSIAPIRequest *)request withSuccess:(RPIApiSuccessBlock)success failure:(RPIApiFailureBlock)failure
-//{
-//    AFHTTPRequestOperation *operatopn = [self p_operationWithRequest:request success:success failure:failure];
-//    [self enqueueHTTPRequestOperation:operatopn];
-//}
-
-
-#pragma mark - super overload
-
-
-//- (void) getPath:(NSString *)path parameters:(NSDictionary *)parameters success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure
-//{
-//    
-//}
-
-#pragma mark -  -
 
 @end
